@@ -1,0 +1,21 @@
+version: '3.3'
+
+services:
+
+  server:
+    image: portainer/portainer
+    restart: always
+    command: -H unix:///var/run/docker.sock
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - data:/data
+    networks:
+      - frontend
+
+volumes:
+  data:
+
+networks:
+  frontend:
+    external:
+      name: proxy_frontend
