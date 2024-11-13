@@ -1,21 +1,18 @@
-version: '3.3'
-
 services:
 
-  server:
-    image: portainer/portainer
-    restart: always
-    command: -H unix:///var/run/docker.sock
+  app:
+    image: portainer/portainer-ce:2.21.3
+    restart: unless-stopped
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - data:/data
     networks:
-      - frontend
-
-volumes:
-  data:
+      frontend:
+      vpn:
 
 networks:
   frontend:
-    external:
-      name: proxy_frontend
+  vpn:
+
+volumes:
+  data:
