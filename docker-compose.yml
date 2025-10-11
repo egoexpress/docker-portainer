@@ -1,7 +1,7 @@
 services:
 
   app:
-    image: portainer/portainer-ce:2.34.0
+    image: portainer/portainer-ee:2.34.0
     restart: unless-stopped
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
